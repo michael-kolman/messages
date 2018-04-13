@@ -17,6 +17,15 @@
         return $connection;
     }
 
+    function insertMessage($message){
+
+        $connection = getConnection();
+
+        $query = "INSERT INTO messages (body) VALUES ('$message')";
+
+        return mysqli_query($connection, $query);
+    }
+
     function getMessages(){
         $connection = getConnection();
 
@@ -39,9 +48,5 @@
         mysqli_free_result($result);
 
         return $records;
-    }
-
-    function insertMessages(){
-
     }
 
